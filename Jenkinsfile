@@ -15,11 +15,14 @@ pipeline {
                 '''
             }
         }
-        stage ('approve'){
+        stage('approve') {
             steps {
-                input 'Do you want to proceed with Terraform apply?'
-            }
+                timeout(time: 10, unit: 'MINUTES') {
+                    input message: 'Do you want to proceed with Terraform apply?',
+                      submitter: 'abhinav'
         }
+    }
+}
         stage ('apply'){
             steps {
                 sh '''
