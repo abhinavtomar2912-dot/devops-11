@@ -1,9 +1,9 @@
 pipeline {
     agent any
     stages {
-        stage('multi'){
-            steps{
-                echo 'branch name: {env.BRANCH_NAME}'
+        stage('Build Info') {
+            steps {
+                echo "Building branch: ${env.BRANCH_NAME}"
             }
         }
     }
